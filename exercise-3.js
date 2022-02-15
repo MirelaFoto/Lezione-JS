@@ -52,5 +52,5 @@ const persons = [{
 ];
 
 const adults = adultFilter(persons);
-console.log(persons);
-console.log(adults);
+console.log(persons); // lista completa
+console.log(adults); //la lista di adulti
