@@ -1,9 +1,9 @@
 function getKeys(obj) {
-  let myObj = []
-
-
-  myObj.push(Object.values(person))
-  return myObj;
+  let myArr = []
+  for (let key in person) {
+    myArr.push(key);
+  }
+  return myArr;
 }
 
 const person = {
@@ -14,6 +14,7 @@ const person = {
   job: 'Developer',
 };
 
-const keys = "Solo i valori dell'oggetto  :\n " + getKeys(person);
-console.log(keys); // risultato Solo i valori dell'oggetto (senza keys) :
-//John,Doe,32,Rome,Developer
+const keys = getKeys(person);
+console.log(keys);
+//output
+//[ 'firstName', 'lastName', 'age', 'city', 'job' ]
