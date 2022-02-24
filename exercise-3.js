@@ -21,7 +21,7 @@ class BankAccount {
     }
 
     if (this.#amount < amount) {
-      throw WithdrawNotPermittedError;
+      throw WithdrawNotPermittedError.name;
       // throw new Error('You cannot withdraw more than account balance'); // Use custom Error class
     }
 
@@ -42,7 +42,7 @@ class Error {
    class NegativeAmountError extends Error {
     constructor(message) {
       super(message);
-       
+       this.name = "Negative Amount Error"
     }
 
    }
@@ -50,6 +50,7 @@ class Error {
 
     constructor(message) {
       super(message);
+      this.name = '" Withdraw +" "+ Not+" "+Permitted +" "+Error"'
      
     }
 
@@ -63,5 +64,5 @@ try {
   bankAccount.withdraw(10000);
   bankAccount.view();
 } catch (e) {
-  console.log('Something went wrong during bank account operations');
+  console.log(e);
 }
