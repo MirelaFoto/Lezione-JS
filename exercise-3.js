@@ -50,7 +50,7 @@ class Error {
 
     constructor(message) {
       super(message);
-      this.name = '" Withdraw +" "+ Not+" "+Permitted +" "+Error"'
+      this.name = 'WithdrawNotPermittedError'
      
     }
 
