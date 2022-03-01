@@ -33,4 +33,10 @@ function fetchPersonById(id) {
   });
 }
 
-// core here
+let Promise=fetchPersonById(2)
+Promise
+.then((person)=>{
+
+  console.log(JSON.parse(JSON.stringify(person)))
+})
+.catch()
