@@ -23,10 +23,10 @@ function fetchPersonById(id) {
   return new Promise((resolve,reject) => {
     setTimeout(() => {const people = persons.find(item=>item.id===id);
     if(people){
-      resolve(people)
+      return resolve(people)
     // }resolve(persons.find(item => item.id === id)), 1000);
   }else{
-    reject(Error("ID non esiste"));
+    return reject(Error("ID non esiste"));
   }},1000)
   
   
