@@ -44,3 +44,4 @@ function fetchPersonById(id) {
     console.log(person);
     
   })()
+  //output:{ id: 2, firstName: 'Maria', lastName: 'Verdi', age: 32 }
