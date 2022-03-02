@@ -33,10 +33,13 @@ function fetchPersonById(id) {
   });
 }
 
-let Promise=fetchPersonById(2)
-Promise
-.then((person)=>{
-
-  console.log(JSON.parse(JSON.stringify(person)))
+let promise= fetchPersonById(6)
+promise
+.then(function(result) {
+    console.log("This is the " + result); 
+    return Json.parse(result);
 })
-.catch()
+.catch(function(e) {
+    console.error(e);
+});
+//output Person with id: 6 doesn't exist
