@@ -1,7 +1,7 @@
 <html>
   <body>
     <div id="container">
-      <form>
+      <form id="my-form">
         <div>
           <label id="name">First Name:</label>
           <input type="text" class="form-input" id="firstName" value="Mario"/>
@@ -20,15 +20,7 @@
 </html>
 
 <script>
-  let name = document.getElementById("name").textContent
-  let nameValue=document.getElementById("firstName").value
-  let surname = document.getElementById("surname").textContent
-  let surnameValue=document.getElementById("lastName").value
-  let age = document.getElementById("ageLab").textContent
-  let ageValue=document.getElementById("age").value
-
-
-  console.log(name + nameValue +" "
-  +  surname + surnameValue +" "
-  +age+ ageValue)
+let myForm =Array.from(document.getElementById("my-form"))
+ .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
+ console.log(myForm)
 </script>
