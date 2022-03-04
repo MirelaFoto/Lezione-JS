@@ -1,0 +1,33 @@
+<html>
+  <body>
+    <div id="container">
+      <form>
+        <div>
+          <label>First Name:</label>
+          <input type="text" class="form-input" id="firstName" value="Mario"/>
+        </div>
+        <div>
+          <label>Last Name:</label>
+          <input type="text" class="form-input" id="lastName" value="Rossi"/>
+        </div>
+        <div>
+          <label>Age:</label>
+          <input type="number" class="form-input" id="age" value="25"/>
+        </div>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+  //create the object "person"
+   let person = Array.from(document.getElementById("my-form"))
+ .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
+// convert in json
+let dataPerson = JSON.stringify(person);
+
+// get form, set a new Attribute
+ let form = document.getElementsByTagName("form")
+ let formEl = form.setAttribute("data_person" ,"dataPerson")
+   console.log(formEl)
+</script>
