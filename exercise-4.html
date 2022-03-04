@@ -1,7 +1,7 @@
 <html>
   <body>
     <div id="container">
-      <form>
+      <form id ="my-form">
         <div>
           <label>First Name:</label>
           <input type="text" class="form-input" id="firstName" value="Mario"/>
@@ -26,8 +26,13 @@
 // convert in json
 let dataPerson = JSON.stringify(person);
 
-// get form, set a new Attribute
+// get form
+
  let form = document.getElementsByTagName("form")
- let formEl = form.setAttribute("data_person" ,"dataPerson")
-   console.log(formEl)
+ 
+
+ form[0].setAttribute("data_person" , dataPerson);
+console.log(form)
+  //output:
+ // "my-form": <form id="my-form" data_person="{\"firstName\":\"Mario\"…Rossi\",\"age\":\"25\"}">
 </script>
