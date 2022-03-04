@@ -40,7 +40,7 @@ function fetchPersonById(id) {
 
   (async () => {
     const personJson = await fetchPersonById(2);
-    const person = await JSON.parse(personJson);
+    const person =JSON.parse(personJson);
     console.log(person);
     
   })()
