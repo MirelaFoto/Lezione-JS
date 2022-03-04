@@ -1,12 +1,26 @@
 <html>
-  <head>
-    <link rel="stylesheet" href="style.css">
+  <head><style>
+
+    form{
+display: flex;
+flex-direction: column;
+gap:4px;
+    }
+    input{
+      width:30%;
+     
+    }
+    button{
+      width:20%;
+    }
+  </style>
+  
   </head>
   <body>
     <div id="container">
       <h2>Person's Form</h2>
       <form id="person-form">
-        <button type="submit">Submit</button>
+      
       </form>
     </div>
   </body>
@@ -15,54 +29,78 @@
 <script>
  function  initForm(){
  var br = document.createElement("br");
-   
+ 
     // Create a form dynamically
     var form = document.getElementById("person-form");
     form.setAttribute("method", "post");
     form.setAttribute("action", "submit.php");
   
-    // Create an input element for Full Name
+    // Create an input element
     var firstName = document.createElement("input");
         firstName.setAttribute("type", "text");
-        firstName.setAttribute("name", "FullName");
+        firstName.setAttribute("id", "firstName");
         firstName.setAttribute("placeholder", "First Name");
    
     var lastName = document.createElement("input");
     lastName.setAttribute("type", "text");
-    lastName.setAttribute("name", "FullName");
-    lastName.setAttribute("placeholder", "LastName");
+    lastName.setAttribute("id", "lastName");
+    lastName.setAttribute("placeholder", "Last Name");
  
  
  
  
-     // Create an input element for emailID
+    
      var age = document.createElement("input");
      age.setAttribute("type", "text");
-     age.setAttribute("name", "age");
+     age.setAttribute("id", "age");
      age.setAttribute("placeholder", "Age");
- 
-      
+
+     var submit = document.createElement("input");
+     submit.setAttribute("type", "button");submit
+     submit.setAttribute("id", "submit");
+     submit.setAttribute("value","Submit")
+      // create+append labels
+
+      var label = document.createElement("label");
+label.setAttribute("for","firstName");
+label.innerHTML = "First name";
+
+var label1 = document.createElement("label");
+label1.setAttribute("for","lastName");
+label1.innerHTML = "Last name";
+
+var label2 = document.createElement("label");
+label2.setAttribute("for","age");
+label2.innerHTML = "Age";
+
  
       
                  
-                // Append the full name input to the form
+                // Append the input to the form
+                form.appendChild(label)
                 form.appendChild(firstName);
+                form.appendChild(label1)
                  form.appendChild(lastName);
+                 form.appendChild(label2);
                  form.appendChild(age);
-                 
+               
                 // Inserting a line break
                 form.appendChild(br.cloneNode());
-                 
+
+                form.appendChild(submit)
                 
-            document.getElementsByTagName("form")[0]
+            document.getElementsByTagName("div")[0]
                .appendChild(form);}
                initForm();
-
+//function Submit
 
                function submitPersonForm(){
-
-                
+ 
+                let myForm =Array.from(document.getElementById("person-form"))
+ .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
+ console.log(myForm)
                }
+              document.getElementById("submit").addEventListener("click", submitPersonForm())
     
 
 </script>
