@@ -1,0 +1,68 @@
+<html>
+  <head>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div id="container">
+      <h2>Person's Form</h2>
+      <form id="person-form">
+        <button type="submit">Submit</button>
+      </form>
+    </div>
+  </body>
+</html>
+
+<script>
+ function  initForm(){
+ var br = document.createElement("br");
+   
+    // Create a form dynamically
+    var form = document.getElementById("person-form");
+    form.setAttribute("method", "post");
+    form.setAttribute("action", "submit.php");
+  
+    // Create an input element for Full Name
+    var firstName = document.createElement("input");
+        firstName.setAttribute("type", "text");
+        firstName.setAttribute("name", "FullName");
+        firstName.setAttribute("placeholder", "First Name");
+   
+    var lastName = document.createElement("input");
+    lastName.setAttribute("type", "text");
+    lastName.setAttribute("name", "FullName");
+    lastName.setAttribute("placeholder", "LastName");
+ 
+ 
+ 
+ 
+     // Create an input element for emailID
+     var age = document.createElement("input");
+     age.setAttribute("type", "text");
+     age.setAttribute("name", "age");
+     age.setAttribute("placeholder", "Age");
+ 
+      
+ 
+      
+                 
+                // Append the full name input to the form
+                form.appendChild(firstName);
+                 form.appendChild(lastName);
+                 form.appendChild(age);
+                 
+                // Inserting a line break
+                form.appendChild(br.cloneNode());
+                 
+                
+            document.getElementsByTagName("form")[0]
+               .appendChild(form);}
+               initForm();
+
+
+               function submitPersonForm(){
+
+                
+               }
+    
+
+</script>
