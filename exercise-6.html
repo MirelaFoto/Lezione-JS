@@ -20,87 +20,74 @@ gap:4px;
     <div id="container">
       <h2>Person's Form</h2>
       <form id="person-form">
-      
+      <button id="submit" type="button">Submit</button>
       </form>
     </div>
   </body>
 </html>
 
 <script>
- function  initForm(){
- var br = document.createElement("br");
- 
-    // Create a form dynamically
-    var form = document.getElementById("person-form");
-    form.setAttribute("method", "post");
-    form.setAttribute("action", "submit.php");
-  
-    // Create an input element
-    var firstName = document.createElement("input");
-        firstName.setAttribute("type", "text");
-        firstName.setAttribute("id", "firstName");
-        firstName.setAttribute("placeholder", "First Name");
+  function generateLabel(textContent) {
+    const label = document.createElement("label");
+    label.textContent = textContent;
+    return label;
+  }
+
+  function generateInput(type, id, placeholder) {
+    const input = document.createElement("input");
+    input.type = type;
+    input.id = id;
+    input.className = "form-input";
+    input.placeholder = placeholder;
+    return input;
+  }
+
+  function generateFormInputField(type, id, labelText) {
+    const label = generateLabel(labelText);
+    const input = generateInput(type, id, labelText);
+    const container = document.createElement("div");
+    container.appendChild(label);
+    container.appendChild(input);
+    return container;
+  }
+
+  function submitPersonForm(event) {
+    event.preventDefault();
+    const firstNameInput = document.getElementById("firstName");
+    const lastNameInput = document.getElementById("lastName");
+    const ageInput = document.getElementById("age");
+    const person = {
+      firstName: firstNameInput.value,
+      lastName: lastNameInput.value,
+      age: ageInput.value,
+    };
+
+    console.log(person);
+  }
+
+  function initForm() {
+    const firstNameInput = generateFormInputField(
+      "type",
+      "firstName",
+      "First Name"
+    );
+
+    const lastNameInput = generateFormInputField(
+      "type",
+      "lastName",
+      "Last Name"
+    );
+
+    const ageInput = generateFormInputField("number", "age", "Age");
+
+    const form = document.getElementById("person-form");
+    form.prepend(ageInput);
+    form.prepend(lastNameInput);
+    form.prepend(firstNameInput);
+     
+    document.getElementById("submit").addEventListener("click", submitPersonForm)
    
-    var lastName = document.createElement("input");
-    lastName.setAttribute("type", "text");
-    lastName.setAttribute("id", "lastName");
-    lastName.setAttribute("placeholder", "Last Name");
- 
- 
- 
- 
-    
-     var age = document.createElement("input");
-     age.setAttribute("type", "text");
-     age.setAttribute("id", "age");
-     age.setAttribute("placeholder", "Age");
-
-     var submit = document.createElement("input");
-     submit.setAttribute("type", "button");submit
-     submit.setAttribute("id", "submit");
-     submit.setAttribute("value","Submit")
-      // create+append labels
-
-      var label = document.createElement("label");
-label.setAttribute("for","firstName");
-label.innerHTML = "First name";
-
-var label1 = document.createElement("label");
-label1.setAttribute("for","lastName");
-label1.innerHTML = "Last name";
-
-var label2 = document.createElement("label");
-label2.setAttribute("for","age");
-label2.innerHTML = "Age";
-
- 
-      
-                 
-                // Append the input to the form
-                form.appendChild(label)
-                form.appendChild(firstName);
-                form.appendChild(label1)
-                 form.appendChild(lastName);
-                 form.appendChild(label2);
-                 form.appendChild(age);
-               
-                // Inserting a line break
-                form.appendChild(br.cloneNode());
-
-                form.appendChild(submit)
-                
-            document.getElementsByTagName("div")[0]
-               .appendChild(form);}
-               initForm();
-//function Submit
-
-               function submitPersonForm(){
- 
-                let myForm =Array.from(document.getElementById("person-form"))
- .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
- console.log(myForm)
-               }
-              document.getElementById("submit").addEventListener("click", submitPersonForm())
-    
-
+}
+initForm()   
 </script>
+</html>
