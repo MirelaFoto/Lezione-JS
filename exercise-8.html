@@ -1,0 +1,29 @@
+<html>
+  <body>
+    <div >
+      <h2>Hero's List</h2>
+      <ul id="container" class="hero-list">
+        <li  class="hero-list-item">Batman</li>
+        <li   class="hero-list-item">Superman</li>
+        <li   class="hero-list-item">Spiderman</li>
+        <li   class="hero-list-item">Hulk</li>
+        <li    class="hero-list-item">Wolverine</li>
+      </ul>
+    </div>
+  </body>
+</html>
+
+<script>
+
+container.onmouseover =container.onmouseout = handler;
+
+function handler(event) {
+
+  if (event.type == 'mouseover') {
+   event.target.style.color = 'red'
+  }
+  if (event.type == 'mouseout') {
+    event.target.style.color = 'transparent'
+  }
+}
+</script>
