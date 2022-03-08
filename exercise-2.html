@@ -11,6 +11,18 @@
 </html>
 
 <script>
+function carica(){
+  fetch('https://jsonplaceholder.typicode.com/posts/1');
+
+
+function myFunction() {
+  var x = localStorage.getItem("My Link");
+  document.getElementById("post-title").innerHTML = x;
+}
+
+document.getElementById('fetch-post').addEventListener('click', myfunction())
+  
+}
 
 
 
