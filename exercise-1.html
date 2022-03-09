@@ -8,4 +8,44 @@
 
 <script>
 
+var xhr = new XMLHttpRequest();
+var url = " https://jsonplaceholder.typicode.com/todos";
+
+
+xhr.onreadystatechange = function() {
+
+  if (xhr.readyState == 4 && xhr.status == 200) { 
+  
+   var data = JSON.parse(xhr.responseText);
+    
+  todos(data);
+  }
+}
+
+xhr.open("GET", url, true);
+xhr.send();
+
+
+function todos(obj) {
+    var output = "<ul>"; 
+    var i;
+    
+    
+    for (i in obj) {
+        output += "<li>" + obj[i].title +"</li>"; 
+    }
+    
+    output += "</ul>"; 
+
+  
+    document.getElementById("container").innerHTML = output;
+}
+todos()
 </script>
+
+
+
+
+
+
+
