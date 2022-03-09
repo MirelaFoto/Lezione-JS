@@ -6,11 +6,31 @@
 
 <script>
 
+var xhr = new XMLHttpRequest();
+var url = " https://jsonplaceholder.typicode.com/todos/4";
 
 
+xhr.onreadystatechange = function() {
+
+  if (xhr.readyState == 4 && xhr.status == 200) { 
+  
+   var data = JSON.parse(xhr.responseText);
+    
+  create(data);
+  }
+}
+
+xhr.open("GET", url, true);
+xhr.send();
 
 
+ function create(element){
+     
+        output = "<h2>"+ element.title+"</h2>"
+         +"<input type= 'checkbox' checked>"
 
-
-
+  
+    document.getElementById("container").innerHTML=output;
+ }
+create()
 </script>
