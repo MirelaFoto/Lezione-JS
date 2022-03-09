@@ -5,7 +5,7 @@
       <table id="person-table" >
         <tbody></tbody>
       </table>
-      <button id="add-row"  onclick="add()">Add row</button>
+      <button id="add-row"  >Add row</button>
     </div>
   </body>
 </html>
@@ -13,18 +13,27 @@
 <script>
 
   function add(){
-let row_1 = document.createElement('tr');
-let data_1 = document.createElement('td');
-data_1.innerHTML = "First Name";
-let data_2 = document.createElement('td');
-data_2.innerHTML = "Last Name";
-let data_3 = document.createElement('td');
-data_3.innerHTML = "Age";
-let tbody = document.getElementsByTagName('tbody')
-row_1.appendChild(data_1);
-row_1.appendChild(data_2);
-row_1.appendChild(data_3);
-tbody[0].appendChild(row_1);
-}
-document.getElementById('person-table').style.border= "solid 2px green "
+//  let row_1 = document.createElement('tr');
+//  let data_1 = document.createElement('td');
+//  data_1.innerHTML = "First Name";
+//  let data_2 = document.createElement('td');
+//  data_2.innerHTML = "Last Name";
+//  let data_3 = document.createElement('td');
+//  data_3.innerHTML = "Age";
+//  let tbody = document.getElementsByTagName('tbody')
+//  row_1.appendChild(data_1);
+//  row_1.appendChild(data_2);
+//  row_1.appendChild(data_3);
+//  tbody[0].appendChild(row_1);
+
+ let output = "'<tr>' + '<td>'+ 'first'+ '</td>'+'</tr>'"
+ document.getElementsByTagName("tbody").innerHtml= output
+ }
+
+
+ document.getElementById('person-table').style.border= "solid 2px green "
+
+
+add();
+document.getElementById('add-row').addEventListener('click', add)
 </script>
