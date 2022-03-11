@@ -20,11 +20,21 @@
 </html>
 
 <script>
-  //create the object "person"
-   let person = Array.from(document.getElementById("my-form"))
- .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
-// convert in json
-let dataPerson = JSON.stringify(person);
+//exenia example
+const input= document.querySelectorAll('.form-input')
+
+input.forEach(item=>{
+  //console.log(item.previousElementSibling.textContent,item.value)
+    
+})
+
+  //create the object "person"--deve prendere come proprieta i valori
+//    let person = Array.from(document.getElementById("my-form"))
+//  .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
+// // convert in json
+
+
+let dataPerson= JSON.stringify(person)
 
 // get form
 
