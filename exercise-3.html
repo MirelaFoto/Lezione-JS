@@ -20,7 +20,16 @@
 </html>
 
 <script>
-let myForm =Array.from(document.getElementById("my-form"))
- .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
- console.log(myForm)
+
+  const input= document.querySelectorAll('.form-input')
+
+  input.forEach(item=>{
+    console.log(item.previousElementSibling.textContent,item.value)
+  })
+
+// let myForm =Array.from(document.getElementById("my-form"))
+//  .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
+//  console.log(myForm)
+
+
 </script>
