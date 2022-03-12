@@ -16,33 +16,40 @@
         </div>
       </form>
     </div>
-  </body>
-</html>
+ 
 
 <script>
-//exenia example
-const input= document.querySelectorAll('.form-input')
 
-input.forEach(item=>{
+const age=document.querySelector("#age").value ;
+ const name=document.querySelector("#firstname").value;
+ const surname=document.querySelector("#lastname").value;
+ 
+
+const data_person = {name,surname,age}
+ 
+
+let person= JSON.stringify(data_person);
+
+
+ document.querySelector('form').setAttribute('data_person', person)
+   
+
+//  output;<formd id='form' data_person='{"name":"Mario","surname":"Rossi","age":"25"}'>
+
+      // ---------------------------------------------------------------------
+
+  //output:const input= document.querySelectorAll('.form-input')
+
+// input.forEach(item=>{
   //console.log(item.previousElementSibling.textContent,item.value)
     
-})
+// })
 
   //create the object "person"--deve prendere come proprieta i valori
 //    let person = Array.from(document.getElementById("my-form"))
 //  .reduce((labels,input)=>({...labels,[input.id]:input.value}),{});
 // // convert in json
-
-
-let dataPerson= JSON.stringify(person)
-
-// get form
-
- let form = document.getElementsByTagName("form")
- 
-
- form[0].setAttribute("data_person" , dataPerson);
-console.log(form)
-  //output:
  // "my-form": <form id="my-form" data_person="{\"firstName\":\"Mario\"…Rossi\",\"age\":\"25\"}">
 </script>
+</body>
+</html>
